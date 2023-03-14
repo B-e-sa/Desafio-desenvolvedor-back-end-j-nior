@@ -57,4 +57,17 @@ Exemplo de erro (campo repetido):
 
 ### GET
 Um método GET para o endereço `` /api/v1/client `` trará uma resposta<br>
-com todos os clientes presentes no banco de dados.
+com todos os clientes presentes no banco de dados. Exemplo:
+
+```json
+[
+	{
+		"id": 1,
+		"name": "marcos",
+		"email": "test@gmail.com",
+		"cpf": "12345667821",
+		"phone": "31998511111",
+		"created_at": "2023-03-14T08:23:24.714Z"
+	}
+]
+```
