@@ -10,17 +10,17 @@ rodando o arquivo docker (recomendado) no diretório root, com o comando:<br>
 
 ### Utilize os comandos:
 
-`` npm install ``
+`` npm install ``<br>
 Para instalar as dependências.<br>
 
-`` npm run dev ``
+`` npm run dev ``<br>
 Para iniciar o servidor e a conexão com o banco de dados.<br>
+
+`` npm run typeorm migration:run ``<br>
+Para executar a migration *(opcional)*.
 
 O banco relacional escolhido para aplicação foi o PostgreSQL e, <br> 
 as informações de como ele foi configurado estão em `` .\src\database\data-source.ts ``.
-
-`` npm run typeorm migration:run ``
-Para executar a migration.
 
 ## Requisições
 A API recebe dois tipos de requisição, POST e GET.<br>
@@ -57,4 +57,17 @@ Exemplo de erro (campo repetido):
 
 ### GET
 Um método GET para o endereço `` /api/v1/client `` trará uma resposta<br>
-com todos os clientes presentes no banco de dados.
+com todos os clientes presentes no banco de dados. Exemplo:
+
+```json
+[
+ {
+  "id": 1,
+  "name": "marcos",
+  "email": "test@gmail.com",
+  "cpf": "12345667821",
+  "phone": "31998511111",
+  "created_at": "2023-03-14T08:23:24.714Z"
+ }
+]
+```
