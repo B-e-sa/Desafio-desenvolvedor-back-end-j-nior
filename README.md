@@ -17,7 +17,7 @@ Para instalar as dependências.<br>
 Para iniciar o servidor e a conexão com o banco de dados.<br>
 
 `` npm run typeorm migration:run ``<br>
-Para executar a migration.
+Para executar a migration *(opcional)*.
 
 O banco relacional escolhido para aplicação foi o PostgreSQL e, <br> 
 as informações de como ele foi configurado estão em `` .\src\database\data-source.ts ``.
