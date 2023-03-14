@@ -27,7 +27,7 @@ A API recebe dois tipos de requisição, POST e GET.<br>
 URL padrão: http://localhost:3000/api/v1/client
 
 ### POST
-Um método POST para o endereço `` /api/v1/client `` envia para o servidor<br>
+O endereço `` /api/v1/client `` espera de um método POST<br>
 os parâmetros de email, cpf, nome e numero celular de um formulário<br>
 e os armazena no banco de dados. Por exemplo:
 
