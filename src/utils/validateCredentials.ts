@@ -21,7 +21,7 @@ const validateCredentials = ({ cpf, phone, name, email }: ICredentials) => {
     if (!validate(email))
         errors.email = "invalid email";
 
-    if (cpf?.length !== 11)
+    if (cpf?.length !== 11 || !cpf.match(/^\d+$/))
         errors.cpf = "invalid cpf";
 
     if (phone?.length !== 11)
