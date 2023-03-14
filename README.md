@@ -10,17 +10,17 @@ rodando o arquivo docker (recomendado) no diretório root, com o comando:<br>
 
 ### Utilize os comandos:
 
-`` npm install ``
+`` npm install ``<br>
 Para instalar as dependências.<br>
 
-`` npm run dev ``
+`` npm run dev ``<br>
 Para iniciar o servidor e a conexão com o banco de dados.<br>
+
+`` npm run typeorm migration:run ``<br>
+Para executar a migration.
 
 O banco relacional escolhido para aplicação foi o PostgreSQL e, <br> 
 as informações de como ele foi configurado estão em `` .\src\database\data-source.ts ``.
-
-`` npm run typeorm migration:run ``
-Para executar a migration.
 
 ## Requisições
 A API recebe dois tipos de requisição, POST e GET.<br>
