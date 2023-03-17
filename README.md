@@ -25,6 +25,7 @@ as informações de como ele foi configurado estão em `` .\src\database\data-so
 ## Requisições
 A API recebe dois tipos de requisição, POST e GET.<br>
 URL padrão: http://localhost:3000/api/v1/client
+URL de procura por precatório: http://localhost:3000/api/v1/client/precatory
 
 ### POST
 O endereço `` /api/v1/client `` espera de um método POST<br>
@@ -56,6 +57,30 @@ Exemplo de erro (campo repetido):
     },
 }
 ```
+
+Um método POST para o endereço `` /api/v1/client/precatory `` trará uma resposta<br>
+com todos os precatorios feitos entre duas datas fornecidas. Exemplo:
+
+```json
+{
+	"createdDate": "2023-03-14T08:23:24.714Z", 
+	"finalDate": "2023-03-30T08:00:00.000Z"
+}
+```
+
+retornará:
+
+```json
+{
+  "id": 1,
+  "name": "marcos",
+  "email": "test@gmail.com",
+  "cpf": "12345667821",
+  "phone": "31998511111",
+  "created_at": "2023-03-14T08:23:24.714Z"
+}
+```
+
 
 ### GET
 Um método GET para o endereço `` /api/v1/client `` trará uma resposta<br>
