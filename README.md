@@ -43,15 +43,17 @@ e os armazena no banco de dados. Por exemplo:
 As informações repetidas, nulas ou inválidas são tratadas pelo backend<br>
 ou pelo próprio banco.
 
-Exemplo de erro (email / cpf já existente):
+Exemplo de erro (campo repetido):
 
 ```json
 {
-    "error": "key already exists",
-    "code": "23505",
-    "detail": "Key (email)=(test@gmail.com) already exists.",
-    "name": "QueryFailedError",
-    "routine": "_bt_check_unique"
+    "error": {
+        "message": "key already exists",
+        "code": "23505",
+        "detail": "Key (email)=(test@gmail.com) already exists.",
+        "name": "QueryFailedError",
+        "routine": "_bt_check_unique"
+    },
 }
 ```
 
