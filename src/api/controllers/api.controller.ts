@@ -3,6 +3,26 @@ import { Client } from "../../database/entities/client/Client";
 import clientRepository from "../../database/entities/client/ClientRepository";
 import validateCredentials from "../../utils/validateCredentials";
 
+const getByDate = async (req: Request, res: Response) => {
+
+    try {
+
+        const { createdDate, finalDate } = req.body;
+
+        const searchedPrecatory = await clientRepository.query(
+            `SELECT * FROM clients WHERE created_at >= '${createdDate}' AND created_at <= '${finalDate}';`
+        );
+
+        res.status(200).send(searchedPrecatory);
+
+    } catch (e) {
+
+        res.status(500).send(e)
+
+    }
+
+}
+
 const createClient = async (req: Request, res: Response) => {
 
     try {
@@ -54,5 +74,5 @@ const getClients = async (_req: Request, res: Response) => {
     res.send(await clientRepository.find());
 }
 
-export { createClient, getClients };
+export { createClient, getClients, getByDate };
 
