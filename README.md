@@ -43,7 +43,7 @@ e os armazena no banco de dados. Por exemplo:
 As informações repetidas, nulas ou inválidas são tratadas pelo backend<br>
 ou pelo próprio banco.
 
-Exemplo de erro (campo repetido):
+Exemplo de erro (email / cpf já existente):
 
 ```json
 {
