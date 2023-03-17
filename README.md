@@ -24,7 +24,7 @@ as informações de como ele foi configurado estão em `` .\src\database\data-so
 
 ## Requisições
 A API recebe dois tipos de requisição, POST e GET.<br>
-URL padrão: http://localhost:3000/api/v1/client
+URL padrão: http://localhost:3000/api/v1/client<br>
 URL de procura por precatório: http://localhost:3000/api/v1/client/precatory
 
 ### POST
