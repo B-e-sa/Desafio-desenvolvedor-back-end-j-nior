@@ -35,13 +35,15 @@ const createClient = async (req: Request, res: Response) => {
 
     } catch (e: any) {
 
+        const { code, detail, name, routine } = e;
+
         res.status(400).send({
             error: {
                 message: "key already exists",
-                code: e.code,
-                detail: e.detail,
-                name: e.name,
-                routine: e.routine
+                code: code,
+                detail: detail,
+                name: name,
+                routine: routine
             },
         });
 
