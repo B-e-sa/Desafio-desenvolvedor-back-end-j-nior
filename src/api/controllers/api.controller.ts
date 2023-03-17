@@ -17,7 +17,11 @@ const getByDate = async (req: Request, res: Response) => {
 
     } catch (e) {
 
-        res.status(500).send(e)
+        res.status(400).send({
+            error: {
+                message: "invalid create or final date",
+            }
+        })
 
     }
 
