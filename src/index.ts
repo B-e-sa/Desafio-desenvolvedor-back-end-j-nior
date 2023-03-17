@@ -1,7 +1,7 @@
 import express from "express";
 import "reflect-metadata";
 import AppDataSource from "./database/data-source";
-import route from "./api/routes/routes";
+import route from "./api/routes/api.routes";
 
 const app = express();
 

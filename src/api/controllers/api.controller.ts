@@ -25,9 +25,10 @@ const createClient = async (req: Request, res: Response) => {
 
         } else {
             res.status(400).send({
-                error: "invalid credentials",
-                status: 400,
-                errors: errors
+                error: {
+                    message: "invalid credentials",
+                    ...errors
+                },
             })
         }
 
@@ -35,11 +36,13 @@ const createClient = async (req: Request, res: Response) => {
     } catch (e: any) {
 
         res.status(400).send({
-            error: "key already exists",
-            code: e.code,
-            detail: e.detail,
-            name: e.name,
-            routine: e.routine
+            error: {
+                message: "key already exists",
+                code: e.code,
+                detail: e.detail,
+                name: e.name,
+                routine: e.routine
+            },
         });
 
     }
