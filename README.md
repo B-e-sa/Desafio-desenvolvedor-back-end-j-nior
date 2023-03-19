@@ -49,7 +49,7 @@ Exemplo de erro (campo repetido):
 ```json
 {
     "error": {
-        "message": "key already exists",
+        "message": "email or cpf already in use",
         "code": "23505",
         "detail": "Key (email)=(test@gmail.com) already exists.",
         "name": "QueryFailedError",
@@ -80,7 +80,6 @@ retornará:
   "created_at": "2023-03-14T08:23:24.714Z"
 }
 ```
-
 
 ### GET
 Um método GET para o endereço `` /api/v1/client `` trará uma resposta<br>

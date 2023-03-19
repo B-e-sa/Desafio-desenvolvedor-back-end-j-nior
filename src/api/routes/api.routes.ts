@@ -1,13 +1,14 @@
 import { Router } from 'express';
+import validateCredentials from '../middlewares/validateCredentials';
 import { createClient, getClients, getByDate } from '../controllers/api.controller';
 
 const apiRoute = Router();
 
-apiRoute.route('/api/v1/client/precatory')
-    .post(getByDate)
+apiRoute.post('/precatory', getByDate);
 
-apiRoute.route('/api/v1/client')
-    .get(getClients)
-    .post(createClient);
+apiRoute.get('/client', getClients);
+
+apiRoute.post('/client', validateCredentials, createClient);
+
 
 export default apiRoute;

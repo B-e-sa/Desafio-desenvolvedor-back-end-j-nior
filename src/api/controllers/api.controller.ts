@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Client } from "../../database/entities/client/Client";
 import clientRepository from "../../database/entities/client/ClientRepository";
-import validateCredentials from "../../utils/validateCredentials";
+import validateCredentials from "../middlewares/validateCredentials";
 
 const getByDate = async (req: Request, res: Response) => {
 
@@ -33,28 +33,15 @@ const createClient = async (req: Request, res: Response) => {
 
         const { cpf, phone, email, name } = req.body;
 
-        const errors = validateCredentials({ cpf, phone, name, email });
+        const newClient = new Client();
+        newClient.phone = phone;
+        newClient.name = name;
+        newClient.email = email;
+        newClient.cpf = cpf;
 
-        if (Object.keys(errors).length === 0) { // if req has no errors
+        await clientRepository.save(newClient);
 
-            const newClient = new Client();
-            newClient.phone = phone;
-            newClient.name = name;
-            newClient.email = email;
-            newClient.cpf = cpf;
-
-            await clientRepository.save(newClient);
-
-            res.sendStatus(200);
-
-        } else {
-            res.status(400).send({
-                error: {
-                    message: "invalid credentials",
-                    ...errors
-                },
-            })
-        }
+        res.sendStatus(200);
 
 
     } catch (e: any) {
@@ -63,7 +50,7 @@ const createClient = async (req: Request, res: Response) => {
 
         res.status(400).send({
             error: {
-                message: "key already exists",
+                message: "email or cpf already in use",
                 code: code,
                 detail: detail,
                 name: name,
