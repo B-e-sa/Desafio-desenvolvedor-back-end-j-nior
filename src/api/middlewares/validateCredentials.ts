@@ -17,8 +17,6 @@ export interface ICredentials {
 
 const validateCredentials = (req: Request, res: Response, next: NextFunction) => {
 
-    console.log("oiii")
-
     const { email, cpf, phone, name } = req.body;
 
     const errors: IErrors = {};
