@@ -8,13 +8,6 @@ interface IErrors {
     name?: string
 }
 
-export interface ICredentials {
-    email: string
-    cpf: string
-    phone: string
-    name: string
-}
-
 const validateCredentials = (req: Request, res: Response, next: NextFunction) => {
 
     const { email, cpf, phone, name } = req.body;

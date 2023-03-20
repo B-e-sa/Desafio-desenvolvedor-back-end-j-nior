@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { Client } from "../../database/entities/client/Client";
 import clientRepository from "../../database/entities/client/ClientRepository";
-import validateCredentials from "../middlewares/validateCredentials";
 
 const getByDate = async (req: Request, res: Response) => {
 
