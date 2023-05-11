@@ -49,11 +49,9 @@ Exemplo de erro (campo repetido):
 ```json
 {
     "error": {
-        "message": "email or cpf already in use",
-        "code": "23505",
-        "detail": "Key (email)=(test@gmail.com) already exists.",
-        "name": "QueryFailedError",
-        "routine": "_bt_check_unique"
+        "message": "invalid credentials",
+	"name": "invalid name",
+	"phone": "invalid phone number"
     },
 }
 ```
