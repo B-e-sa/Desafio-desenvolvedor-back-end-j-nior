@@ -2,13 +2,13 @@ import { Router } from 'express';
 import validation from '../middlewares/validation.middleware.';
 import { createClient, getClients, getByDate } from '../controllers/client.controller';
 
-const apiRoute = Router();
+const clientRoute = Router();
 
-apiRoute.post('/precatory', getByDate);
+clientRoute.post('/precatory', getByDate);
 
-apiRoute.get('/client', getClients);
+clientRoute.get('/client', getClients);
 
-apiRoute.post('/client', validation, createClient);
+clientRoute.post('/client', validation, createClient);
 
 
-export default apiRoute;
+export default clientRoute;
