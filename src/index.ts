@@ -1,12 +1,14 @@
 import express from "express";
 import "reflect-metadata";
 import AppDataSource from "./database/data-source";
-import route from "./api/routes/api.routes";
+import route from "./api/routes/client.routes";
+import errorHandler from './api/middlewares/errorHandler.middleware'
 
 const app = express();
 
 app.use(express.json());
-app.use('/api/v1', route);
+app.use('/api/', route);
+app.use(errorHandler)
 
 app.listen(3000, () => console.log("Server running on port 3000!"))
 

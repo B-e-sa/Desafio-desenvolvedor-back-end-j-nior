@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { Client } from "../../database/entities/client/Client";
 import clientRepository from "../../database/entities/client/ClientRepository";
 
-const getByDate = async (req: Request, res: Response) => {
+const getByDate = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
 
@@ -14,19 +14,11 @@ const getByDate = async (req: Request, res: Response) => {
 
         res.status(200).send(searchedPrecatory);
 
-    } catch (e) {
-
-        res.status(400).send({
-            error: {
-                message: "invalid create or final date",
-            }
-        })
-
-    }
+    } catch (e) { next(e) }
 
 }
 
-const createClient = async (req: Request, res: Response) => {
+const createClient = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
 
@@ -43,21 +35,7 @@ const createClient = async (req: Request, res: Response) => {
         res.sendStatus(200);
 
 
-    } catch (e: any) {
-
-        const { code, detail, name, routine } = e;
-
-        res.status(400).send({
-            error: {
-                message: "email or cpf already in use",
-                code: code,
-                detail: detail,
-                name: name,
-                routine: routine
-            },
-        });
-
-    }
+    } catch (e: any) { next(e) }
 }
 
 const getClients = async (_req: Request, res: Response) => {
