@@ -32,7 +32,7 @@ const createClient = async (req: Request, res: Response, next: NextFunction) => 
 
         await clientRepository.save(newClient);
 
-        res.sendStatus(200);
+        res.sendStatus(201);
 
 
     } catch (e: any) { next(e) }
